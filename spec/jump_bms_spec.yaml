@@ -1,0 +1,1105 @@
+0x1000 0x00:
+  name: ''
+  len: 4
+  objtype: VAR
+  datatype: str
+  access: ''
+  sample: ''
+  default: CANB
+  desc: Device Type. Should be 2 16bit fields identifying device profile but its a
+    string.
+  status: complete
+0x1001 0x00:
+  name: ''
+  len: 1
+  objtype: VAR
+  datatype: u8
+  access: ''
+  sample: ''
+  default: ''
+  desc: Error Register
+  status: complete
+0x100A 0x00:
+  name: ''
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: ''
+  sample: ''
+  default: 00 0A 00 01    ( 1.9 ?? )
+  desc: Manufacturer Software Version. Should be string but its binary.
+  status: partial
+0x1017 0x00:
+  name: ''
+  len: 2
+  objtype: VAR
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '1000'
+  desc: Producer heartbeat time in ms
+  status: complete
+0x1018 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: ro
+  sample: ''
+  default: '5'
+  desc: "Vendor Identity Object - highest sub-index supported\nShould be 4 items but\
+    \ this contains 5"
+  status: complete
+0x1018 0x01:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: ro
+  sample: ''
+  default: 0xB1 50 B1 50
+  desc: Vendor ID. Gibberish unknown vendor.
+  status: complete
+0x1018 0x02:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: ro
+  sample: ''
+  default: '6'
+  desc: Product Code
+  status: complete
+0x1018 0x03:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: ro
+  sample: ''
+  default: 0A 00 00 00 ( 0.9 )
+  desc: Product Revision
+  status: complete
+0x1018 0x04:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: ro
+  sample: ''
+  default: 00 00 00 00
+  desc: Serial Number
+  status: complete
+0x1018 0x05:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: ro
+  sample: 11 F7 CA 23
+  default: ''
+  desc: Might be a serial number, numerous coded sticks on case
+  status: ''
+0x101C 0x00:
+  name: ''
+  len: 2
+  objtype: VAR
+  datatype: u16
+  access: rw
+  sample: '1000'
+  default: '1000'
+  desc: Looks like some timer value..
+  status: ''
+0x1800 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: const
+  sample: ''
+  default: '5'
+  desc: TPDO 1 - Fixed mapping, see 0x1A00
+  status: complete
+0x1800 0x01:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: rw
+  sample: ''
+  default: 00 00 00 80
+  desc: TPDO 1 COB-ID and transmission state
+  status: complete
+0x1800 0x02:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 1 transmission type
+  status: complete
+0x1800 0x03:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 1 inhibit time. Multiples of 100 microseconds
+  status: complete
+0x1800 0x04:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: Reserved
+  status: complete
+0x1800 0x05:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 1 event timer in ms
+  status: complete
+0x1801 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: const
+  sample: ''
+  default: '5'
+  desc: TPDO 2 - Fixed mapping, see 0x1A01
+  status: complete
+0x1801 0x01:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: rw
+  sample: ''
+  default: 00 00 00 80
+  desc: TPDO 2 COB-ID and transmission state
+  status: complete
+0x1801 0x02:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 2 transmission type
+  status: complete
+0x1801 0x03:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 2 inhibit time. Multiples of 100 microseconds
+  status: complete
+0x1801 0x04:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: Reserved
+  status: complete
+0x1801 0x05:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 2 event timer in ms
+  status: complete
+0x1802 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: const
+  sample: ''
+  default: '5'
+  desc: TPDO 3 - Fixed mapping, empty.
+  status: complete
+0x1802 0x01:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: rw
+  sample: ''
+  default: 00 00 00 80
+  desc: TPDO 3 COB-ID and transmission state
+  status: complete
+0x1802 0x02:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 3 transmission type
+  status: complete
+0x1802 0x03:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 3 inhibit time. Multiples of 100 microseconds
+  status: complete
+0x1802 0x04:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: Reserved
+  status: complete
+0x1802 0x05:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 3 event timer in ms
+  status: complete
+0x1803 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: const
+  sample: ''
+  default: '5'
+  desc: TPDO 4 - Fixed mapping, empty.
+  status: complete
+0x1803 0x01:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: u32
+  access: rw
+  sample: ''
+  default: 00 00 00 80
+  desc: TPDO 4 COB-ID and transmission state
+  status: complete
+0x1803 0x02:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 4 transmission type
+  status: complete
+0x1803 0x03:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 4 inhibit time. Multiples of 100 microseconds
+  status: complete
+0x1803 0x04:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: Reserved
+  status: complete
+0x1803 0x05:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: rw
+  sample: ''
+  default: '0'
+  desc: TPDO 4 event timer in ms
+  status: complete
+0x1A00 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: ro
+  sample: ''
+  default: '0'
+  desc: "TPDO 1 mapping\n\nReads empty, not  configurable  but has the following map:\n\
+    \n0x2000 01 Voltage\n0x2000 04 ?\n0x2010 02 ?\nLast 2 bytes unknown possibly 0x2010\
+    \ 0x01 and ???"
+  status: partial
+0x1A00 0x01:
+  name: tpdo_sub_1
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x200001F0'
+  desc: For EDS
+  status: partial
+0x1A00 0x02:
+  name: tpdo_sub_2
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x20004DF0'
+  desc: For EDS
+  status: partial
+0x1A00 0x03:
+  name: tpdo_sub_3
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x20102F0'
+  desc: For EDS
+  status: partial
+0x1A00 0x04:
+  name: tpdo_sub_4
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x201004F0'
+  desc: For EDS - Actual map unknown just temporary
+  status: partial
+0x1A00 0x05:
+  name: tpdo_sub_5
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x201004F0'
+  desc: For EDS - Actual map unknown just temporary
+  status: partial
+0x1A01 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: ro
+  sample: ''
+  default: '4'
+  desc: "TPDO 2 mapping\n\nReads empty, not  configurable  but has the following map:\n\
+    \n0x2010,0x0C temp2\n0x2010,0x0D temp3\n0x2000,0x02 temp1\n0x2000,0x03 ????"
+  status: partial
+0x1A01 0x01:
+  name: tpdo_sub_1
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x20100CF0'
+  desc: For EDS
+  status: partial
+0x1A01 0x02:
+  name: tpdo_sub_2
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x20100DF0'
+  desc: For EDS
+  status: partial
+0x1A01 0x03:
+  name: tpdo_sub_3
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x200002F0'
+  desc: For EDS
+  status: partial
+0x1A01 0x04:
+  name: tpdo_sub_4
+  len: 4
+  objtype: VAR
+  datatype: u32
+  access: const
+  sample: ''
+  default: '0x200003F0'
+  desc: For EDS
+  status: partial
+0x1A02 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: ro
+  sample: ''
+  default: '0'
+  desc: TPDO 3 mapping appears static. Unconfigured.
+  status: complete
+0x1A03 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: ro
+  sample: ''
+  default: '0'
+  desc: TPDO 4 mapping appears static. Unconfigured.
+  status: complete
+0x2000 0x00:
+  name: stat1
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: ro
+  sample: ''
+  default: '4'
+  desc: Status Record 1 - highest sub-index supported
+  status: complete
+0x2000 0x01:
+  name: voltage
+  len: 2
+  objtype: ''
+  datatype: u16
+  access: ''
+  sample: ''
+  default: current voltage
+  desc: Pack voltage in mV
+  status: partial
+0x2000 0x02:
+  name: temp1
+  len: 2
+  objtype: ''
+  datatype: s16
+  access: ''
+  sample: ''
+  default: current temp
+  desc: Temp 1 - units look like  centi-degrees C
+  status: partial
+0x2000 0x03:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2000 0x04:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2001 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2010 0x00:
+  name: stat2
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: const
+  sample: ''
+  default: '14'
+  desc: Status Record 2 - highest sub-index supported
+  status: complete
+0x2010 0x01:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: rw
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x02:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: ''
+  access: rw
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x03:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: rw
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x04:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x05:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x06:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x07:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x08:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x09:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x0A:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x0B:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: ''
+  desc: ''
+  status: ''
+0x2010 0x0C:
+  name: temp2
+  len: 2
+  objtype: ''
+  datatype: s16
+  access: ''
+  sample: ''
+  default: current temp
+  desc: Temp 2 - units look like  centi-degrees C
+  status: partial
+0x2010 0x0D:
+  name: temp3
+  len: 2
+  objtype: ''
+  datatype: s16
+  access: ''
+  sample: ''
+  default: current temp
+  desc: Temp 3 - units look like  centi-degrees C
+  status: partial
+0x2100 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2101 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2102 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2103 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2104 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2105 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2200 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: const
+  sample: ''
+  default: '3'
+  desc: highest sub-index supported
+  status: ''
+0x2200 0x01:
+  name: power_enable
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: rw
+  sample: ''
+  default: '0'
+  desc: "Power output control.  \n- 1 to enable output  \n- 0 to disable output"
+  status: partial
+0x2200 0x02:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ro
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2200 0x03:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ro
+  sample: 01 00 00 00
+  default: ''
+  desc: ''
+  status: ''
+0x2201 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: const
+  sample: ''
+  default: '2'
+  desc: highest sub-index supported
+  status: ''
+0x2201 0x01:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: rw
+  sample: ''
+  default: '1'
+  desc: ''
+  status: ''
+0x2201 0x02:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2202 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '2'
+  desc: ''
+  status: ''
+0x2202 0x01:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2300 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: ''
+  sample: ''
+  default: '3'
+  desc: highest sub-index supported
+  status: ''
+0x2300 0x01:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2300 0x02:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 00 00 00 00
+  default: ''
+  desc: ''
+  status: ''
+0x2300 0x03:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 00 00 00 00
+  default: ''
+  desc: ''
+  status: ''
+0x2301 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: ''
+  sample: ''
+  default: '5'
+  desc: highest sub-index supported
+  status: ''
+0x2301 0x01:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 00 00
+  default: ''
+  desc: ''
+  status: ''
+0x2301 0x02:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 00 00
+  default: ''
+  desc: ''
+  status: ''
+0x2301 0x03:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 00 00
+  default: ''
+  desc: ''
+  status: ''
+0x2301 0x04:
+  name: ''
+  len: 2
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 00 00
+  default: ''
+  desc: ''
+  status: ''
+0x2301 0x05:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x2400 0x00:
+  name: ''
+  len: 4
+  objtype: VAR
+  datatype: ''
+  access: rw
+  sample: FF FF FF FF
+  default: ''
+  desc: ''
+  status: ''
+0x2401 0x00:
+  name: ''
+  len: 4
+  objtype: VAR
+  datatype: ''
+  access: rw
+  sample: FF FF FF FF
+  default: ''
+  desc: ''
+  status: ''
+0x5000 0x00:
+  name: ''
+  len: 1
+  objtype: REC
+  datatype: u8
+  access: const
+  sample: ''
+  default: '2'
+  desc: highest sub-index supported
+  status: ''
+0x5000 0x01:
+  name: ''
+  len: 1
+  objtype: VAR
+  datatype: ''
+  access: rw
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x5000 0x02:
+  name: ''
+  len: 1
+  objtype: VAR
+  datatype: ''
+  access: rw
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x5100 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: const
+  sample: ''
+  default: '4'
+  desc: highest sub-index supported
+  status: ''
+0x5100 0x01:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 16 ED 08 08
+  default: ''
+  desc: ''
+  status: ''
+0x5100 0x02:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 00 00 4D 53
+  default: ''
+  desc: ''
+  status: ''
+0x5100 0x03:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: DC 77 FB 5B
+  default: ''
+  desc: ''
+  status: ''
+0x5100 0x04:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: 02 00 00 F5
+  default: ''
+  desc: ''
+  status: ''
+0x5101 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: ''
+  sample: ro
+  default: '1'
+  desc: ''
+  status: ''
+0x5101 0x01:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: ''
+  sample: rw
+  default: '0'
+  desc: Writing zero here causes a reboot.
+  status: partial
+0x5102 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: u8
+  access: ''
+  sample: ''
+  default: '2'
+  desc: ''
+  status: ''
+0x5102 0x01:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: 00 00 00 00
+  desc: ''
+  status: ''
+0x5102 0x02:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: ''
+  sample: ''
+  default: 00 00 00 00
+  desc: ''
+  status: ''
+0x5103 0x00:
+  name: ''
+  len: 1
+  objtype: ''
+  datatype: ''
+  access: rw
+  sample: ''
+  default: '0'
+  desc: ''
+  status: ''
+0x5103 0x01:
+  name: ''
+  len: 4
+  objtype: ''
+  datatype: ''
+  access: rw
+  sample: ''
+  default: 03 00 00 00
+  desc: ''
+  status: ''

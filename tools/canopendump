@@ -1,0 +1,291 @@
+#!/usr/bin/env python3
+# pylint: disable=missing-module-docstring
+
+# Copyright 2020 Jonan
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# version 2 as published by the Free Software Foundation.
+
+"""
+Example code demonstrating howto dump battery status
+"""
+
+import sys
+import time
+from collections import OrderedDict
+import code
+
+import click
+import canopen
+import ruamel.yaml
+
+yaml = ruamel.yaml.YAML()
+yaml.Representer.add_representer(OrderedDict, yaml.Representer.represent_dict)
+
+
+def eprint(*args, **kwargs):
+    """ Print to stderr """
+    print(*args, file=sys.stderr, **kwargs)
+
+
+class BasedIntParamType(click.ParamType):
+    """ Accept Base 10 or Hex Integers """
+    name = "integer"
+
+    def convert(self, value, param, ctx):
+        try:
+            if isinstance(value, int):
+                return value
+            if value[:2].lower() == "0x":
+                return int(value[2:], 16)
+            if value[:1] == "0":
+                return int(value, 8)
+            return int(value, 10)
+        except TypeError:
+            self.fail(
+                "expected string for int() conversion, got "
+                f"{value!r} of type {type(value).__name__}",
+                param,
+                ctx,
+            )
+        except ValueError:
+            self.fail(f"{value!r} is not a valid integer", param, ctx)
+
+
+BASED_INT = BasedIntParamType()
+
+
+def scan_nodes(network):
+    """ Scan bus for available nodes """
+
+    network.scanner.search()
+    time.sleep(3)
+    if network.scanner.nodes:
+        print("Found the following nodes:")
+        for node in network.scanner.nodes:
+            print("0x%02X" % node)
+
+
+def testaccess(node, index, sub, data):
+    """ Test r/w permissions for given object """
+    perm = "ro"
+    try:
+        node.sdo.download(index, sub, data)
+        perm = "rw"
+    except canopen.sdo.exceptions.SdoAbortedError as err:
+        # Attempt to write a read only object
+        if err.code != 0x06010002:
+            eprint("Unkown SdoAbortedError")
+            raise
+    except canopen.sdo.exceptions.SdoCommunicationError as err:
+        perm = str(err)
+        eprint("Communication Error")
+        time.sleep(2)
+    except Exception as err:
+        eprint("Unkown error testing permissions")
+        raise
+    return perm
+
+
+#
+# Object dictionary dump format
+#
+# index:
+# subindex:
+# data:
+# access:
+#
+
+def dump(node, start, stop, access_flag=False):
+    """ Dump object dictionary for given node """
+
+    out = []
+    for index in range(start, stop):
+        for subindex in range(0x00, 0xFF):
+            try:
+                data = node.sdo.upload(index, subindex)
+
+                access = ''
+                if access_flag:
+                    access = testaccess(node, index, subindex, data)
+
+                item = OrderedDict(
+                    index=index,
+                    subindex=subindex,
+                    data=data,
+                    access=access
+                )
+                out.append(item)
+                yield item
+            except canopen.sdo.exceptions.SdoAbortedError as err:
+                # print(str(e))
+                # print("CODE",err.args,err.code)
+                codes = [
+                    # Subindex does not exist
+                    0x06090011,
+                    # Object does not exist
+                    0x06020000
+                ]
+                if err.code in codes:
+                    break
+                raise
+            except Exception as err:
+                print("Unknown error at: {:02X} {:02X}".format(
+                    index, subindex))
+                print(err)
+                raise
+    return out
+
+
+def dump_print(data, fmt):
+    """ Print dump in txt or csv format """
+
+    previdx = None
+    print("Index, SubIndex, Data, IntData_LE, BytesData, Access")
+    for obj in data:
+        obj['intdata'] = int.from_bytes(obj['data'], 'little')
+        obj['hexdata'] = obj['data'].hex(" ").upper()
+
+        if previdx and previdx != obj['index']:
+            print()
+
+        if fmt == 'csv':
+            print("0x{index:02X},0x{subindex:02X},{hexdata:15},"
+                  "{intdata:<11},{data},{access}".format(**obj))
+        elif fmt == 'txt':
+            print("0x{index:02X} 0x{subindex:02X} = {hexdata:15}"
+                  "{intdata:<11} {data},{access}".format(**obj))
+        previdx = obj['index']
+
+
+def can_setup(bus, iface, rate):
+    """ Open CANbus interface with given settings """
+
+    eprint("Connect to '{}' interface '{}'".format(bus, iface))
+    network = canopen.Network()
+
+    network.connect(bustype=bus, channel=iface, bitrate=rate)
+
+    network.nmt.state = 'OPERATIONAL'
+
+    return network
+
+
+class CanCommand(click.Command):
+    """ Common class for commands requiring CANbus access """
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.params = [
+            click.Option(('--iface',),
+                         default='can0',
+                         help='CAN interface',
+                         show_default=True,
+                         type=str),
+            click.Option(('--rate',),
+                         default=100000,
+                         help='CAN bitrate',
+                         show_default=True,
+                         type=int),
+            click.Option(('--bus',),
+                         default='socketcan',
+                         help='Bus type',
+                         show_default=True,
+                         type=str),
+            click.Option(('-f', '--format'),
+                         default='csv',
+                         help='Dump output format',
+                         show_default=True,
+                         type=click.Choice(['txt', 'csv'], case_sensitive=False)),
+            click.Option(('--nodeid',),
+                         default=0x30,
+                         help='Node ID',
+                         show_default=True,
+                         type=int),
+            click.Option(('-r', '--range', 'indexrange'),
+                         nargs=2,
+                         default=(0x1000, 0x1500),
+                         help='Object index range: start , stop',
+                         show_default=True,
+                         type=BASED_INT),
+            click.Option(('--access',),
+                         default=False,
+                         help='DANGEROUS ! Check index access permissions',
+                         show_default=True,
+                         is_flag=True
+                         ),
+            click.Option(('--eds',),
+                         default=None,
+                         help='EDS file for node',
+                         show_default=True,
+                         )
+        ]
+
+
+@click.command(name='dump', cls=CanCommand,
+               help="Dump object dictionary from CANopen device")
+def dump_cmd(**opts):
+    """ CLI dump command """
+
+    (start, end) = opts['indexrange']
+    network = can_setup(opts['bus'], opts['iface'], opts['rate'])
+    node = canopen.RemoteNode(opts['nodeid'], None)
+    network.add_node(node)
+
+    data = dump(node, start, end, opts['access'])
+    dump_print(data, opts['format'])
+
+
+@click.command(cls=CanCommand, help='Drop into interpreter after conncting to CANBus')
+def interact(**opts):
+    """ Connect to CANbus and drop into interpreter for experimentation """
+
+    network = can_setup(opts['bus'], opts['iface'], opts['rate'])
+    if opts['eds']:
+        print("Loading EDS file %s for node %s" %
+              (opts['eds'], opts['nodeid']))
+    node = canopen.RemoteNode(opts['nodeid'], opts['eds'])
+    network.add_node(node)
+
+    code.interact(local=locals())
+
+
+@click.command(cls=CanCommand,
+               name="scan",
+               help="Scan bus for available nodes")
+def scan_cmd(**opts):
+    """ Scan bus for any CANopen devices """
+    network = can_setup(opts['bus'], opts['iface'], opts['rate'])
+    scan_nodes(network)
+
+
+@click.group()
+@click.pass_context
+def main(ctx, **opts):
+    """ Main Entry Point """
+    # pylint: disable=too-few-public-methods
+    class Config:
+        """ Storage for configuration variables as attributes """
+
+        def __init__(self, data=None):
+            if data:
+                for key, val in data.items():
+                    setattr(self, key, val)
+
+    ctx.obj = Config(opts)
+
+    # dump_stat(data)
+    # dump_print(data,format)
+    # scannodes()
+
+    # network.sync.stop()
+    # network.disconnect()
+
+
+main.add_command(dump_cmd)
+main.add_command(interact)
+main.add_command(scan_cmd)
+
+if __name__ == "__main__":
+    main()

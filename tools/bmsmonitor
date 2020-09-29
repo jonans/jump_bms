@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+
+#
+# Example code showing BMS status
+#
+
+import time
+import sys
+import datetime
+import pprint
+import logging
+
+import click
+import canopen
+
+logging.basicConfig(level=logging.WARNING)
+
+BMSINFO = {}
+
+
+def eprint(*args, **kwargs):
+    """ Print to stderr """
+    print(*args, file=sys.stderr, **kwargs)
+
+
+def set_defaults():
+    " Set default values for BMSINFO "
+
+    names = ['voltage',
+             'unknown_2000_04',
+             'unknown_2010_02',
+             'unknown',
+             'temp1',
+             'temp2',
+             'temp3',
+             'unknown_2000_03']
+
+    # Set default value for all variables
+    for var in names:
+        BMSINFO.setdefault(var, "")
+
+
+def show_status(info):
+    """ Display Battery Status """
+
+    msg = """
+    Updated : {last_update}
+    
+    Voltage : {voltage}v
+    Temp 1  : {temp1} degrees C
+    Temp 2  : {temp2} degrees C
+    Temp 3  : {temp3} degrees C
+
+    Unknown Data:
+     
+    0x2000 04 = {unknown_2000_04} 
+    0x2010 02 = {unknown_2010_02} 
+    0x2000 03 = {unknown_2000_03}
+     ????     = {unknown}
+
+    """.format(**info)
+
+    print(msg)
+
+
+def hardway_handle_tpdo(canid, data, tstamp):
+    """ Manually decode incoming TPDO messages """
+
+    if canid == 0x1b0:
+        BMSINFO['voltage'] = int.from_bytes(data[0:2], 'little') / 1000.0
+        BMSINFO['unknown_2000_04'] = int.from_bytes(data[2:4], 'little')
+        BMSINFO['unknown_2010_02'] = int.from_bytes(data[4:6], 'little')
+        BMSINFO['unknown'] = data[6:8].hex()
+    elif canid == 0x2b0:
+        BMSINFO['temp1'] = int.from_bytes(data[0:2], 'little') / 100.0
+        BMSINFO['temp2'] = int.from_bytes(data[2:4], 'little') / 100.0
+        BMSINFO['temp3'] = int.from_bytes(data[4:6], 'little') / 100.0
+        BMSINFO['unknown_2000_03'] = int.from_bytes(data[0:2], 'little')
+
+    BMSINFO['last_update'] = str(datetime.datetime.fromtimestamp(tstamp))
+    show_status(BMSINFO)
+
+
+def the_hard_way(network):
+
+    # Setup canopen object representing the BMS
+    node = canopen.RemoteNode(0x30, None)
+    network.add_node(node)
+
+    # Listen to incoming messages from BMS TPDO 1 and 2
+    network.subscribe(0x1b0, hardway_handle_tpdo)
+    network.subscribe(0x2b0, hardway_handle_tpdo)
+
+    # Configure BMS to push updates periodically
+
+    # Disable TPDO 1 & 2 before making changes
+    node.sdo.download(0x1800, 0x1, bytes.fromhex('b0010080'))
+    node.sdo.download(0x1801, 0x1, bytes.fromhex('b0010080'))
+
+    # Configure transmission type
+    node.sdo.download(0x1800, 0x2, bytes.fromhex('FF'))
+    node.sdo.download(0x1801, 0x2, bytes.fromhex('FF'))
+
+    node.sdo.download(0x1800, 0x3, bytes.fromhex('0000'))
+    node.sdo.download(0x1801, 0x3, bytes.fromhex('0000'))
+
+    # Configure event interval to 5 seconds
+    node.sdo.download(0x1800, 0x5, bytes.fromhex('8813'))
+    node.sdo.download(0x1801, 0x5, bytes.fromhex('8813'))
+
+    # Enable TPDO 1 & 2
+    node.sdo.download(0x1800, 0x1, bytes.fromhex('b0010000'))
+    node.sdo.download(0x1801, 0x1, bytes.fromhex('b0010000'))
+
+    node.nmt.state = 'OPERATIONAL'
+
+
+def can_setup(bus, iface, rate):
+    """ Setup and connect to CAN bus interface """
+
+    eprint("Connect to '{}' interface '{}'".format(bus, 'iface'))
+    network = canopen.Network()
+    network.connect(bustype=bus, channel=iface, bitrate=rate)
+    return network
+
+
+@click.command()
+@click.option('--iface',
+              default='can0',
+              help='CAN interface',
+              show_default=True,
+              type=str)
+@click.option('--rate',
+              default=100000,
+              help='CAN bitrate',
+              show_default=True,
+              type=int)
+@click.option('--bus',
+              default='socketcan',
+              help='Bus type',
+              show_default=True,
+              type=str)
+@click.option('--nodeid',
+              default=0x30,
+              help='Node ID',
+              show_default=True,
+              type=int)
+def main(**opts):
+    """ Main CLI entry point """
+
+    network = can_setup(opts['bus'], opts['iface'], opts['rate'])
+
+    set_defaults()
+    # Main example. This uses a lower level API and is a bit more
+    # complicated. The easier to use API requires EDS file which is
+    # in progress.
+
+    the_hard_way(network)
+
+    # Wait for data to arrive
+    time.sleep(1000)
+
+    network.sync.stop()
+    network.disconnect()
+
+
+if __name__ == "__main__":
+    main()

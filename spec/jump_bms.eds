@@ -1,0 +1,975 @@
+[1000]
+parametername = 1000sub0
+objecttype = 7
+datatype = 9
+accesstype = 
+defaultvalue = CANB
+pdomapping = 0
+
+[1001]
+parametername = 1001sub0
+objecttype = 7
+datatype = 5
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[100A]
+parametername = 100Asub0
+objecttype = 7
+datatype = 7
+accesstype = 
+defaultvalue = 00 0A 00 01    ( 1.9 ?? )
+pdomapping = 0
+
+[1017]
+parametername = 1017sub0
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 1000
+pdomapping = 0
+
+[1018]
+parametername = 
+objecttype = 9
+subnumber = 6
+
+[1018sub0]
+parametername = 1018sub0
+objecttype = 9
+datatype = 5
+accesstype = ro
+defaultvalue = 5
+pdomapping = 0
+
+[1018sub1]
+parametername = 1018sub1
+objecttype = 7
+datatype = 7
+accesstype = ro
+defaultvalue = 0xB1 50 B1 50
+pdomapping = 0
+
+[1018sub2]
+parametername = 1018sub2
+objecttype = 7
+datatype = 7
+accesstype = ro
+defaultvalue = 6
+pdomapping = 0
+
+[1018sub3]
+parametername = 1018sub3
+objecttype = 7
+datatype = 7
+accesstype = ro
+defaultvalue = 0A 00 00 00 ( 0.9 )
+pdomapping = 0
+
+[1018sub4]
+parametername = 1018sub4
+objecttype = 7
+datatype = 7
+accesstype = ro
+defaultvalue = 00 00 00 00
+pdomapping = 0
+
+[1018sub5]
+parametername = 1018sub5
+objecttype = 7
+datatype = 7
+accesstype = ro
+defaultvalue = 
+pdomapping = 0
+
+[101C]
+parametername = 101Csub0
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 1000
+pdomapping = 0
+
+[1800]
+parametername = 
+objecttype = 9
+subnumber = 6
+
+[1800sub0]
+parametername = 1800sub0
+objecttype = 9
+datatype = 5
+accesstype = const
+defaultvalue = 5
+pdomapping = 0
+
+[1800sub1]
+parametername = 1800sub1
+objecttype = 7
+datatype = 7
+accesstype = rw
+defaultvalue = 00 00 00 80
+pdomapping = 0
+
+[1800sub2]
+parametername = 1800sub2
+objecttype = 7
+datatype = 5
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1800sub3]
+parametername = 1800sub3
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1800sub4]
+parametername = 1800sub4
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1800sub5]
+parametername = 1800sub5
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1801]
+parametername = 
+objecttype = 9
+subnumber = 6
+
+[1801sub0]
+parametername = 1801sub0
+objecttype = 9
+datatype = 5
+accesstype = const
+defaultvalue = 5
+pdomapping = 0
+
+[1801sub1]
+parametername = 1801sub1
+objecttype = 7
+datatype = 7
+accesstype = rw
+defaultvalue = 00 00 00 80
+pdomapping = 0
+
+[1801sub2]
+parametername = 1801sub2
+objecttype = 7
+datatype = 5
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1801sub3]
+parametername = 1801sub3
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1801sub4]
+parametername = 1801sub4
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1801sub5]
+parametername = 1801sub5
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1802]
+parametername = 
+objecttype = 9
+subnumber = 6
+
+[1802sub0]
+parametername = 1802sub0
+objecttype = 9
+datatype = 5
+accesstype = const
+defaultvalue = 5
+pdomapping = 0
+
+[1802sub1]
+parametername = 1802sub1
+objecttype = 7
+datatype = 7
+accesstype = rw
+defaultvalue = 00 00 00 80
+pdomapping = 0
+
+[1802sub2]
+parametername = 1802sub2
+objecttype = 7
+datatype = 5
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1802sub3]
+parametername = 1802sub3
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1802sub4]
+parametername = 1802sub4
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1802sub5]
+parametername = 1802sub5
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1803]
+parametername = 
+objecttype = 9
+subnumber = 6
+
+[1803sub0]
+parametername = 1803sub0
+objecttype = 9
+datatype = 5
+accesstype = const
+defaultvalue = 5
+pdomapping = 0
+
+[1803sub1]
+parametername = 1803sub1
+objecttype = 7
+datatype = 7
+accesstype = rw
+defaultvalue = 00 00 00 80
+pdomapping = 0
+
+[1803sub2]
+parametername = 1803sub2
+objecttype = 7
+datatype = 5
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1803sub3]
+parametername = 1803sub3
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1803sub4]
+parametername = 1803sub4
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1803sub5]
+parametername = 1803sub5
+objecttype = 7
+datatype = 6
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[1A00]
+parametername = 
+objecttype = 9
+subnumber = 6
+
+[1A00sub0]
+parametername = 1A00sub0
+objecttype = 9
+datatype = 5
+accesstype = ro
+defaultvalue = 0
+pdomapping = 0
+
+[1A00sub1]
+parametername = tpdo_sub_1
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x200001F0
+pdomapping = 0
+
+[1A00sub2]
+parametername = tpdo_sub_2
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x20004DF0
+pdomapping = 0
+
+[1A00sub3]
+parametername = tpdo_sub_3
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x20102F0
+pdomapping = 0
+
+[1A00sub4]
+parametername = tpdo_sub_4
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x201004F0
+pdomapping = 0
+
+[1A00sub5]
+parametername = tpdo_sub_5
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x201004F0
+pdomapping = 0
+
+[1A01]
+parametername = 
+objecttype = 9
+subnumber = 5
+
+[1A01sub0]
+parametername = 1A01sub0
+objecttype = 9
+datatype = 5
+accesstype = ro
+defaultvalue = 4
+pdomapping = 0
+
+[1A01sub1]
+parametername = tpdo_sub_1
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x20100CF0
+pdomapping = 0
+
+[1A01sub2]
+parametername = tpdo_sub_2
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x20100DF0
+pdomapping = 0
+
+[1A01sub3]
+parametername = tpdo_sub_3
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x200002F0
+pdomapping = 0
+
+[1A01sub4]
+parametername = tpdo_sub_4
+objecttype = 7
+datatype = 7
+accesstype = const
+defaultvalue = 0x200003F0
+pdomapping = 0
+
+[1A02]
+parametername = 1A02sub0
+objecttype = 9
+datatype = 5
+accesstype = ro
+defaultvalue = 0
+pdomapping = 0
+
+[1A03]
+parametername = 1A03sub0
+objecttype = 9
+datatype = 5
+accesstype = ro
+defaultvalue = 0
+pdomapping = 0
+
+[2000]
+parametername = stat1
+objecttype = 9
+subnumber = 5
+
+[2000sub0]
+parametername = stat1
+objecttype = 9
+datatype = 5
+accesstype = ro
+defaultvalue = 4
+pdomapping = 0
+
+[2000sub1]
+parametername = voltage
+objecttype = 7
+datatype = 6
+accesstype = 
+defaultvalue = current voltage
+pdomapping = 0
+
+[2000sub2]
+parametername = temp1
+objecttype = 7
+datatype = 3
+accesstype = 
+defaultvalue = current temp
+pdomapping = 0
+
+[2000sub3]
+parametername = 2000sub3
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2000sub4]
+parametername = 2000sub4
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2001]
+parametername = 2001sub0
+objecttype = 7
+datatype = 5
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2010]
+parametername = stat2
+objecttype = 9
+subnumber = 14
+
+[2010sub0]
+parametername = stat2
+objecttype = 9
+datatype = 5
+accesstype = const
+defaultvalue = 14
+pdomapping = 0
+
+[2010sub1]
+parametername = 2010sub1
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 
+pdomapping = 0
+
+[2010sub2]
+parametername = 2010sub2
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 
+pdomapping = 0
+
+[2010sub3]
+parametername = 2010sub3
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 
+pdomapping = 0
+
+[2010sub4]
+parametername = 2010sub4
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2010sub5]
+parametername = 2010sub5
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2010sub6]
+parametername = 2010sub6
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2010sub7]
+parametername = 2010sub7
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2010sub8]
+parametername = 2010sub8
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2010sub9]
+parametername = 2010sub9
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2010subA]
+parametername = 2010subA
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2010subB]
+parametername = 2010subB
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2010subC]
+parametername = temp2
+objecttype = 7
+datatype = 3
+accesstype = 
+defaultvalue = current temp
+pdomapping = 0
+
+[2010subD]
+parametername = temp3
+objecttype = 7
+datatype = 3
+accesstype = 
+defaultvalue = current temp
+pdomapping = 0
+
+[2100]
+parametername = 2100sub0
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2101]
+parametername = 2101sub0
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2102]
+parametername = 2102sub0
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2103]
+parametername = 2103sub0
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2104]
+parametername = 2104sub0
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2105]
+parametername = 2105sub0
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2200]
+parametername = 
+objecttype = 9
+subnumber = 4
+
+[2200sub0]
+parametername = 2200sub0
+objecttype = 9
+datatype = 5
+accesstype = const
+defaultvalue = 3
+pdomapping = 0
+
+[2200sub1]
+parametername = power_enable
+objecttype = 7
+datatype = 5
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[2200sub2]
+parametername = 2200sub2
+objecttype = 7
+datatype = 0
+accesstype = ro
+defaultvalue = 0
+pdomapping = 0
+
+[2200sub3]
+parametername = 2200sub3
+objecttype = 7
+datatype = 0
+accesstype = ro
+defaultvalue = 
+pdomapping = 0
+
+[2201]
+parametername = 
+objecttype = 9
+subnumber = 3
+
+[2201sub0]
+parametername = 2201sub0
+objecttype = 7
+datatype = 0
+accesstype = const
+defaultvalue = 2
+pdomapping = 0
+
+[2201sub1]
+parametername = 2201sub1
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 1
+pdomapping = 0
+
+[2201sub2]
+parametername = 2201sub2
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2202]
+parametername = 
+objecttype = 9
+subnumber = 2
+
+[2202sub0]
+parametername = 2202sub0
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 2
+pdomapping = 0
+
+[2202sub1]
+parametername = 2202sub1
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2300]
+parametername = 
+objecttype = 9
+subnumber = 4
+
+[2300sub0]
+parametername = 2300sub0
+objecttype = 7
+datatype = 5
+accesstype = 
+defaultvalue = 3
+pdomapping = 0
+
+[2300sub1]
+parametername = 2300sub1
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2300sub2]
+parametername = 2300sub2
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2300sub3]
+parametername = 2300sub3
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2301]
+parametername = 
+objecttype = 9
+subnumber = 6
+
+[2301sub0]
+parametername = 2301sub0
+objecttype = 9
+datatype = 5
+accesstype = 
+defaultvalue = 5
+pdomapping = 0
+
+[2301sub1]
+parametername = 2301sub1
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2301sub2]
+parametername = 2301sub2
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2301sub3]
+parametername = 2301sub3
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2301sub4]
+parametername = 2301sub4
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[2301sub5]
+parametername = 2301sub5
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[2400]
+parametername = 2400sub0
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 
+pdomapping = 0
+
+[2401]
+parametername = 2401sub0
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 
+pdomapping = 0
+
+[5000]
+parametername = 
+objecttype = 9
+subnumber = 3
+
+[5000sub0]
+parametername = 5000sub0
+objecttype = 9
+datatype = 5
+accesstype = const
+defaultvalue = 2
+pdomapping = 0
+
+[5000sub1]
+parametername = 5000sub1
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[5000sub2]
+parametername = 5000sub2
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[5100]
+parametername = 
+objecttype = 9
+subnumber = 5
+
+[5100sub0]
+parametername = 5100sub0
+objecttype = 7
+datatype = 5
+accesstype = const
+defaultvalue = 4
+pdomapping = 0
+
+[5100sub1]
+parametername = 5100sub1
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[5100sub2]
+parametername = 5100sub2
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[5100sub3]
+parametername = 5100sub3
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[5100sub4]
+parametername = 5100sub4
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 
+pdomapping = 0
+
+[5101]
+parametername = 
+objecttype = 9
+subnumber = 2
+
+[5101sub0]
+parametername = 5101sub0
+objecttype = 7
+datatype = 5
+accesstype = 
+defaultvalue = 1
+pdomapping = 0
+
+[5101sub1]
+parametername = 5101sub1
+objecttype = 7
+datatype = 5
+accesstype = 
+defaultvalue = 0
+pdomapping = 0
+
+[5102]
+parametername = 
+objecttype = 9
+subnumber = 3
+
+[5102sub0]
+parametername = 5102sub0
+objecttype = 7
+datatype = 5
+accesstype = 
+defaultvalue = 2
+pdomapping = 0
+
+[5102sub1]
+parametername = 5102sub1
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 00 00 00 00
+pdomapping = 0
+
+[5102sub2]
+parametername = 5102sub2
+objecttype = 7
+datatype = 0
+accesstype = 
+defaultvalue = 00 00 00 00
+pdomapping = 0
+
+[5103]
+parametername = 
+objecttype = 9
+subnumber = 2
+
+[5103sub0]
+parametername = 5103sub0
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 0
+pdomapping = 0
+
+[5103sub1]
+parametername = 5103sub1
+objecttype = 7
+datatype = 0
+accesstype = rw
+defaultvalue = 03 00 00 00
+pdomapping = 0
+

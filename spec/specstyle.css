@@ -1,0 +1,36 @@
+table {
+ max-width: 90%;
+ width: max-content;
+ border: 1px solid lightgrey;
+ border-spacing: 0;
+ border-collapse: collapse;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.key {
+ width: max-content;
+ margin-right: auto;
+ margin-left: auto;
+}
+
+th {
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid lightgrey;
+  padding: 5px;
+}
+
+.complete {
+  background-color: #ccffcc;
+}
+
+.partial {
+  background-color: #ffff80;
+}
+
+.title {
+  text-align: center;
+}
