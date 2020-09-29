@@ -52,7 +52,7 @@ The most interesting stuff is located at index 0x2000 and higher.
 File | Description 
 ---- | -----------
 [jump_bms_spec.yaml](spec/jump_bms_spec.yaml) | Source document for all generated files. You want to edit this if you make any discoveries or changes.
-[jump_bms_spec.html](http://htmlpreview.github.io/?https://github.com/jonans/jump_battery_specs/blob/master/spec/spec.html) | HTML version document of the data
+[jump_bms_spec.html](http://htmlpreview.github.io/?https://github.com/jonans/jump_bms/blob/master/spec/jump_bms_spec.html) | HTML version document of the data
 [jump_bms_spec.md](spec/jump_bms_spec.md) | Markdown version of the data
 [jump_bms.eds](spec/jump_bms.eds) | EDS (cia 306) is the standard file format for describing CANopen devices. Its used by developers to get human readable variable names and automatically generate code. Its incomplete and non compliant but its just enough to work with the Python canopen library.
 
