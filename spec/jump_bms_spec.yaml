@@ -358,9 +358,9 @@
   access: ro
   sample: ''
   default: '0'
-  desc: "TPDO 1 mapping\n\nReads empty, not  configurable  but has the following map:\n\
-    \n0x2000 01 Voltage\n0x2000 04 ?\n0x2010 02 ?\nLast 2 bytes unknown possibly 0x2010\
-    \ 0x01 and ???"
+  desc: "TPDO 1 mapping\n\nThis mapping actually reads empty. Its not configurable\
+    \ but internally has the following 5 map entries configured. Documented here for\
+    \ EDS."
   status: partial
 0x1A00 0x01:
   name: tpdo_sub_1
@@ -370,8 +370,8 @@
   access: const
   sample: ''
   default: '0x200001F0'
-  desc: For EDS
-  status: partial
+  desc: For EDS - Maps to voltage 0x2000 0x01
+  status: complete
 0x1A00 0x02:
   name: tpdo_sub_2
   len: 4
@@ -380,7 +380,7 @@
   access: const
   sample: ''
   default: '0x20004DF0'
-  desc: For EDS
+  desc: For EDS - Maps to 0x2000 0x04
   status: partial
 0x1A00 0x03:
   name: tpdo_sub_3
@@ -389,8 +389,8 @@
   datatype: u32
   access: const
   sample: ''
-  default: '0x20102F0'
-  desc: For EDS
+  default: '0x201002F0'
+  desc: For EDS - Maps to 0x2010 0x02
   status: partial
 0x1A00 0x04:
   name: tpdo_sub_4
@@ -399,8 +399,8 @@
   datatype: u32
   access: const
   sample: ''
-  default: '0x201004F0'
-  desc: For EDS - Actual map unknown just temporary
+  default: ''
+  desc: For EDS - Maps to 0x2010 0x01
   status: partial
 0x1A00 0x05:
   name: tpdo_sub_5
@@ -409,9 +409,9 @@
   datatype: u32
   access: const
   sample: ''
-  default: '0x201004F0'
-  desc: For EDS - Actual map unknown just temporary
-  status: partial
+  default: '0x21000108'
+  desc: For EDS - Maps to power_enable 0x2100 0x01
+  status: complete
 0x1A01 0x00:
   name: ''
   len: 1
@@ -420,8 +420,9 @@
   access: ro
   sample: ''
   default: '4'
-  desc: "TPDO 2 mapping\n\nReads empty, not  configurable  but has the following map:\n\
-    \n0x2010,0x0C temp2\n0x2010,0x0D temp3\n0x2000,0x02 temp1\n0x2000,0x03 ????"
+  desc: "TPDO 2 mapping\n\nThis mapping actually reads empty. Its not configurable\
+    \ but internally has the following 4 map entries configured. Documented here for\
+    \ EDS."
   status: partial
 0x1A01 0x01:
   name: tpdo_sub_1
@@ -431,8 +432,8 @@
   access: const
   sample: ''
   default: '0x20100CF0'
-  desc: For EDS
-  status: partial
+  desc: For EDS - Maps to temp2 0x2010 0x0C
+  status: complete
 0x1A01 0x02:
   name: tpdo_sub_2
   len: 4
@@ -441,8 +442,8 @@
   access: const
   sample: ''
   default: '0x20100DF0'
-  desc: For EDS
-  status: partial
+  desc: For EDS - Maps to temp3 0x2010 0x0D
+  status: complete
 0x1A01 0x03:
   name: tpdo_sub_3
   len: 4
@@ -451,8 +452,8 @@
   access: const
   sample: ''
   default: '0x200002F0'
-  desc: For EDS
-  status: partial
+  desc: For EDS - Maps to temp1 0x2000 0x02
+  status: complete
 0x1A01 0x04:
   name: tpdo_sub_4
   len: 4
@@ -461,7 +462,7 @@
   access: const
   sample: ''
   default: '0x200003F0'
-  desc: For EDS
+  desc: For EDS - Maps to 0x2000 0x03
   status: partial
 0x1A02 0x00:
   name: ''

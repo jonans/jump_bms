@@ -337,7 +337,7 @@ parametername = tpdo_sub_3
 objecttype = 7
 datatype = 7
 accesstype = const
-defaultvalue = 0x20102F0
+defaultvalue = 0x201002F0
 pdomapping = 0
 
 [1A00sub4]
@@ -345,7 +345,7 @@ parametername = tpdo_sub_4
 objecttype = 7
 datatype = 7
 accesstype = const
-defaultvalue = 0x201004F0
+defaultvalue = 
 pdomapping = 0
 
 [1A00sub5]
@@ -353,7 +353,7 @@ parametername = tpdo_sub_5
 objecttype = 7
 datatype = 7
 accesstype = const
-defaultvalue = 0x201004F0
+defaultvalue = 0x21000108
 pdomapping = 0
 
 [1A01]
