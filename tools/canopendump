@@ -8,7 +8,7 @@
 # version 2 as published by the Free Software Foundation.
 
 """
-Example code demonstrating howto dump battery status
+Simple tool for dumping CANopen object dictionary
 """
 
 import sys
@@ -119,8 +119,6 @@ def dump(node, start, stop, access_flag=False):
                 out.append(item)
                 yield item
             except canopen.sdo.exceptions.SdoAbortedError as err:
-                # print(str(e))
-                # print("CODE",err.args,err.code)
                 codes = [
                     # Subindex does not exist
                     0x06090011,
@@ -131,9 +129,9 @@ def dump(node, start, stop, access_flag=False):
                     break
                 raise
             except Exception as err:
-                print("Unknown error at: {:02X} {:02X}".format(
+                eprint("Unknown error at: {:02X} {:02X}".format(
                     index, subindex))
-                print(err)
+                eprint(err)
                 raise
     return out
 
@@ -274,13 +272,6 @@ def main(ctx, **opts):
                     setattr(self, key, val)
 
     ctx.obj = Config(opts)
-
-    # dump_stat(data)
-    # dump_print(data,format)
-    # scannodes()
-
-    # network.sync.stop()
-    # network.disconnect()
 
 
 main.add_command(dump_cmd)
