@@ -1039,8 +1039,8 @@
   len: 1
   objtype: ''
   datatype: u8
-  access: ''
-  sample: ro
+  access: ro
+  sample: ''
   default: '1'
   desc: ''
   status: ''
@@ -1049,8 +1049,8 @@
   len: 1
   objtype: ''
   datatype: u8
-  access: ''
-  sample: rw
+  access: rw
+  sample: ''
   default: '0'
   desc: Writing zero here causes a reboot.
   status: partial

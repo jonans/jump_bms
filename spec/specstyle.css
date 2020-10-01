@@ -24,12 +24,18 @@ th, td {
 }
 
 .complete {
-  background-color: #ccffcc;
+  background-color: #D9EAD3;
 }
 
 .partial {
-  background-color: #ffff80;
+  background-color: #FFE599;
 }
+
+.rw {
+  background-color: #EA9999;
+}
+
+
 
 .title {
   text-align: center;
