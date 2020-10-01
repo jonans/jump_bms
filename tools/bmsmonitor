@@ -15,6 +15,7 @@ import canopen
 
 logging.basicConfig(level=logging.WARNING)
 
+EVENT_TIMER=5000
 BMSINFO = {}
 
 
@@ -26,15 +27,17 @@ def eprint(*args, **kwargs):
 def set_defaults():
     " Set default values for BMSINFO "
 
-    names = ['voltage',
-             'unknown_2000_04',
-             'unknown_2010_02',
-             'unknown',
+    names = ['power',
+             'voltage',
              'temp1',
              'temp2',
              'temp3',
-             'unknown_2000_03']
-
+             'unknown_2000_03',
+             'unknown_2000_04',
+             'unknown_2010_01',
+             'unknown_2010_02',
+             ]
+ 
     # Set default value for all variables
     for var in names:
         BMSINFO.setdefault(var, "")
@@ -46,7 +49,7 @@ def show_status(info):
     msg = """
     Updated : {last_update}
     
-    Power   : {output}
+    Power   : {power}
     Voltage : {voltage}v
     Temp 1  : {temp1} degrees C
     Temp 2  : {temp2} degrees C
@@ -63,23 +66,26 @@ def show_status(info):
 
     print(msg)
 
+def strhexint(data):
+    return "%s (%s)" % (data.hex(),int.from_bytes(data,'little'))
 
 def hardway_handle_tpdo(canid, data, tstamp):
     """ Manually decode incoming TPDO messages """
 
-    if canid == 0x1b0:
+    if canid == 0x1b0: # Decode TPDO 1
         BMSINFO['voltage'] = int.from_bytes(data[0:2], 'little') / 1000.0
-        BMSINFO['unknown_2000_04'] = int.from_bytes(data[2:4], 'little')
-        BMSINFO['unknown_2010_02'] = int.from_bytes(data[4:6], 'little')
-        BMSINFO['unknown_2010_01'] = data[6:7].hex()
-        BMSINFO['output'] = 'on' if ord(data[7:8]) else 'off'
-    elif canid == 0x2b0:
+        BMSINFO['unknown_2000_04'] = strhexint(data[2:4])
+        BMSINFO['unknown_2010_02'] = strhexint(data[4:6])
+        BMSINFO['unknown_2010_01'] = strhexint(data[6:7])
+        BMSINFO['power'] = 'on' if ord(data[7:8]) else 'off'
+    elif canid == 0x2b0: # Decode TPDO 2
         BMSINFO['temp1'] = int.from_bytes(data[0:2], 'little') / 100.0
         BMSINFO['temp2'] = int.from_bytes(data[2:4], 'little') / 100.0
         BMSINFO['temp3'] = int.from_bytes(data[4:6], 'little') / 100.0
-        BMSINFO['unknown_2000_03'] = int.from_bytes(data[0:2], 'little')
+        BMSINFO['unknown_2000_03'] = strhexint(data[6:8])
 
-    BMSINFO['last_update'] = str(datetime.datetime.fromtimestamp(tstamp))
+    BMSINFO['last_update'] = datetime.datetime.fromtimestamp(tstamp).\
+            isoformat(' ',timespec='seconds')
     show_status(BMSINFO)
 
 
@@ -106,9 +112,10 @@ def the_hard_way(network):
     node.sdo.download(0x1800, 0x3, bytes.fromhex('0000'))
     node.sdo.download(0x1801, 0x3, bytes.fromhex('0000'))
 
-    # Configure event interval to 5 seconds
-    node.sdo.download(0x1800, 0x5, bytes.fromhex('8813'))
-    node.sdo.download(0x1801, 0x5, bytes.fromhex('8813'))
+    # Configure event interval to EVENT_TIMER
+    interval = EVENT_TIMER.to_bytes(2,byteorder='little')
+    node.sdo.download(0x1800, 0x5, interval)
+    node.sdo.download(0x1801, 0x5, interval)
 
     # Enable TPDO 1 & 2
     node.sdo.download(0x1800, 0x1, bytes.fromhex('b0010000'))

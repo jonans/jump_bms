@@ -80,6 +80,13 @@ pipenv install
 pipenv shell
 ```
 
+Setup your can interface:
+
+```
+ip link set can0 type can bitrate 100000
+ip link set can0 txqueuelen 1000 up
+```
+
 ## What can you do ?
 
 - Analyze the test scenarios and see what you can decode.
@@ -104,4 +111,11 @@ We can dump all the data and compare the differences under various testing condi
 1. [cold-2.csv](tests/cold-2.csv) - 30 min after, room temp 24c
 1. [cold-3.csv](tests/cold-3.csv) - 45 min after, room temp 23c
 1. [cold-4.csv](tests/cold-4.csv) - 60 min after, room temp 23c
+
+### Testing no load state with power off / on
+
+- Dump BMS at idle with power on then off
+
+1. [idle-power-off.csv](test/idle-power-off.csv) - Power off
+1. [idle-power-on.csv](test/idle-power-on.csv) - Power on
 
