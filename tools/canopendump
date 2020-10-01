@@ -45,12 +45,12 @@ class BasedIntParamType(click.ParamType):
         except TypeError:
             self.fail(
                 "expected string for int() conversion, got "
-                f"{value!r} of type {type(value).__name__}",
+                "{} of type {}".format(repr(value),type(value).__name__),
                 param,
                 ctx,
             )
         except ValueError:
-            self.fail(f"{value!r} is not a valid integer", param, ctx)
+            self.fail("{} is not a valid integer".format(repr(value)), param, ctx)
 
 
 BASED_INT = BasedIntParamType()
@@ -145,7 +145,7 @@ def dump_print(data, fmt):
     print("Index, SubIndex, Data, IntData_LE, BytesData, Access")
     for obj in data:
         obj['intdata'] = int.from_bytes(obj['data'], 'little')
-        obj['hexdata'] = obj['data'].hex(" ").upper()
+        obj['hexdata'] = obj['data'].hex().upper()
 
         if previdx and previdx != obj['index']:
             print()

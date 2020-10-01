@@ -68,8 +68,12 @@ tools/canspec | Takes the spec file jump_bms_spec.yaml and generates html, markd
 
 ### Setup environment
 
-Make sure you have python3 and pipenv installed. Run the following to install requirements
-and setup shell to run the tools.
+**Minimum Requirements**
+
+- Python 3.2 or later
+- pipenv
+
+ Run the following inside the jump_bms directory to automatically install the rest and setup shell to run the tools.
 
 ```shell
 pipenv install

@@ -5,15 +5,9 @@ name = "pypi"
 
 [packages]
 canopen = "*"
-PyYAML = "*"
 "ruamel.yaml" = "*"
 click = "*"
 
 [dev-packages]
 pylint = "*"
-
-[requires]
-python_version = "3.8"
-
-[packages.pytablewriter]
-extras = [ "excel",]
+vermin = "*"
