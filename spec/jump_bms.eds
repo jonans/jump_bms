@@ -450,7 +450,7 @@ pdomapping = 0
 parametername = 2000sub3
 objecttype = 7
 datatype = 0
-accesstype = 
+accesstype = ro
 defaultvalue = 
 pdomapping = 0
 
@@ -458,7 +458,7 @@ pdomapping = 0
 parametername = 2000sub4
 objecttype = 7
 datatype = 0
-accesstype = 
+accesstype = ro
 defaultvalue = 
 pdomapping = 0
 
@@ -679,7 +679,7 @@ subnumber = 3
 
 [2201sub0]
 parametername = 2201sub0
-objecttype = 7
+objecttype = 9
 datatype = 0
 accesstype = const
 defaultvalue = 2
@@ -729,7 +729,7 @@ subnumber = 4
 
 [2300sub0]
 parametername = 2300sub0
-objecttype = 7
+objecttype = 9
 datatype = 5
 accesstype = 
 defaultvalue = 3
@@ -864,7 +864,7 @@ subnumber = 5
 
 [5100sub0]
 parametername = 5100sub0
-objecttype = 7
+objecttype = 9
 datatype = 5
 accesstype = const
 defaultvalue = 4
@@ -930,7 +930,7 @@ subnumber = 3
 
 [5102sub0]
 parametername = 5102sub0
-objecttype = 7
+objecttype = 9
 datatype = 5
 accesstype = 
 defaultvalue = 2

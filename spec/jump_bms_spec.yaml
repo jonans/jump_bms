@@ -53,7 +53,7 @@
 0x1018 0x01:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: ro
   sample: ''
@@ -63,7 +63,7 @@
 0x1018 0x02:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: ro
   sample: ''
@@ -73,7 +73,7 @@
 0x1018 0x03:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: ro
   sample: ''
@@ -83,7 +83,7 @@
 0x1018 0x04:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: ro
   sample: ''
@@ -93,12 +93,12 @@
 0x1018 0x05:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: ro
   sample: 11 F7 CA 23
   default: ''
-  desc: Might be a serial number, numerous coded sticks on case
+  desc: Might be a serial number, numerous coded stickers on case
   status: ''
 0x101C 0x00:
   name: ''
@@ -123,7 +123,7 @@
 0x1800 0x01:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: rw
   sample: ''
@@ -133,7 +133,7 @@
 0x1800 0x02:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: u8
   access: rw
   sample: ''
@@ -143,7 +143,7 @@
 0x1800 0x03:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -153,7 +153,7 @@
 0x1800 0x04:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -163,7 +163,7 @@
 0x1800 0x05:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -183,7 +183,7 @@
 0x1801 0x01:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: rw
   sample: ''
@@ -193,7 +193,7 @@
 0x1801 0x02:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: u8
   access: rw
   sample: ''
@@ -203,7 +203,7 @@
 0x1801 0x03:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -213,7 +213,7 @@
 0x1801 0x04:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -223,7 +223,7 @@
 0x1801 0x05:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -243,7 +243,7 @@
 0x1802 0x01:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: rw
   sample: ''
@@ -253,7 +253,7 @@
 0x1802 0x02:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: u8
   access: rw
   sample: ''
@@ -263,7 +263,7 @@
 0x1802 0x03:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -273,7 +273,7 @@
 0x1802 0x04:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -283,7 +283,7 @@
 0x1802 0x05:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -303,7 +303,7 @@
 0x1803 0x01:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: u32
   access: rw
   sample: ''
@@ -313,7 +313,7 @@
 0x1803 0x02:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: u8
   access: rw
   sample: ''
@@ -323,7 +323,7 @@
 0x1803 0x03:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -333,7 +333,7 @@
 0x1803 0x04:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -343,7 +343,7 @@
 0x1803 0x05:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: rw
   sample: ''
@@ -497,7 +497,7 @@
 0x2000 0x01:
   name: voltage
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: u16
   access: ''
   sample: ''
@@ -507,7 +507,7 @@
 0x2000 0x02:
   name: temp1
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: s16
   access: ''
   sample: ''
@@ -517,20 +517,20 @@
 0x2000 0x03:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: ''
-  access: ''
-  sample: ''
+  access: ro
+  sample: E2FF
   default: ''
   desc: ''
   status: ''
 0x2000 0x04:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: ''
-  access: ''
-  sample: ''
+  access: ro
+  sample: A605
   default: ''
   desc: ''
   status: ''
@@ -557,27 +557,27 @@
 0x2010 0x01:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: rw
-  sample: ''
+  sample: 0C
   default: ''
   desc: ''
   status: ''
 0x2010 0x02:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: rw
-  sample: ''
+  sample: 802B
   default: ''
   desc: ''
   status: ''
 0x2010 0x03:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: rw
   sample: ''
@@ -587,7 +587,7 @@
 0x2010 0x04:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -597,7 +597,7 @@
 0x2010 0x05:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -607,7 +607,7 @@
 0x2010 0x06:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -617,7 +617,7 @@
 0x2010 0x07:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -627,7 +627,7 @@
 0x2010 0x08:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -637,7 +637,7 @@
 0x2010 0x09:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -647,7 +647,7 @@
 0x2010 0x0A:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -657,7 +657,7 @@
 0x2010 0x0B:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -667,7 +667,7 @@
 0x2010 0x0C:
   name: temp2
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: s16
   access: ''
   sample: ''
@@ -677,7 +677,7 @@
 0x2010 0x0D:
   name: temp3
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: s16
   access: ''
   sample: ''
@@ -757,7 +757,7 @@
 0x2200 0x01:
   name: power_enable
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: u8
   access: rw
   sample: ''
@@ -767,27 +767,27 @@
 0x2200 0x02:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ro
   sample: ''
   default: '0'
-  desc: ''
+  desc: Goes high when power enabled
   status: ''
 0x2200 0x03:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ro
   sample: 01 00 00 00
   default: ''
-  desc: ''
+  desc: Goes to 00 00 00 00 when power enabled
   status: ''
 0x2201 0x00:
   name: ''
   len: 1
-  objtype: ''
+  objtype: REC
   datatype: ''
   access: const
   sample: ''
@@ -797,7 +797,7 @@
 0x2201 0x01:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: rw
   sample: ''
@@ -807,7 +807,7 @@
 0x2201 0x02:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -837,7 +837,7 @@
 0x2300 0x00:
   name: ''
   len: 1
-  objtype: ''
+  objtype: REC
   datatype: u8
   access: ''
   sample: ''
@@ -847,7 +847,7 @@
 0x2300 0x01:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -857,7 +857,7 @@
 0x2300 0x02:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 00 00 00 00
@@ -867,7 +867,7 @@
 0x2300 0x03:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 00 00 00 00
@@ -887,7 +887,7 @@
 0x2301 0x01:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 00 00
@@ -897,7 +897,7 @@
 0x2301 0x02:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 00 00
@@ -907,7 +907,7 @@
 0x2301 0x03:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 00 00
@@ -917,7 +917,7 @@
 0x2301 0x04:
   name: ''
   len: 2
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 00 00
@@ -927,7 +927,7 @@
 0x2301 0x05:
   name: ''
   len: 1
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -972,8 +972,8 @@
   access: rw
   sample: ''
   default: '0'
-  desc: ''
-  status: ''
+  desc: Goes high when power enabled
+  status: partial
 0x5000 0x02:
   name: ''
   len: 1
@@ -982,12 +982,12 @@
   access: rw
   sample: ''
   default: '0'
-  desc: ''
-  status: ''
+  desc: Goes high when power enabled
+  status: partial
 0x5100 0x00:
   name: ''
   len: 1
-  objtype: ''
+  objtype: REC
   datatype: u8
   access: const
   sample: ''
@@ -997,7 +997,7 @@
 0x5100 0x01:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 16 ED 08 08
@@ -1007,7 +1007,7 @@
 0x5100 0x02:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 00 00 4D 53
@@ -1017,7 +1017,7 @@
 0x5100 0x03:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: DC 77 FB 5B
@@ -1027,7 +1027,7 @@
 0x5100 0x04:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: 02 00 00 F5
@@ -1057,7 +1057,7 @@
 0x5102 0x00:
   name: ''
   len: 1
-  objtype: ''
+  objtype: REC
   datatype: u8
   access: ''
   sample: ''
@@ -1067,7 +1067,7 @@
 0x5102 0x01:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
@@ -1077,7 +1077,7 @@
 0x5102 0x02:
   name: ''
   len: 4
-  objtype: ''
+  objtype: VAR
   datatype: ''
   access: ''
   sample: ''
