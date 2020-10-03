@@ -31,12 +31,12 @@ def set_defaults():
              'temp1',
              'temp2',
              'temp3',
-             'charge_current',
-             'unknown_2000_04',
-             'unknown_2010_01',
-             'unknown_2010_02',
+             'current',
+             'charge_level',
+             'soc',
+             'max_capacity',
              ]
- 
+
     # Set default value for all variables
     for var in names:
         BMSINFO.setdefault(var, "")
@@ -53,35 +53,37 @@ def show_status(info):
     Temp 1         : {temp1} degrees C
     Temp 2         : {temp2} degrees C
     Temp 3         : {temp3} degrees C
-    Charge Current : {charge_current} mA
-
-    Unknown Data:
-     
-    0x2000 04 = {unknown_2000_04} 
-    0x2010 01 = {unknown_2010_01}
-    0x2010 02 = {unknown_2010_02} 
+    
+    Current         : {current} mA 
+    Charge Level    : {charge_level} mAh 
+    Max Capacity    : {max_capacity} mAh
+    State of Charge : {soc} %
 
     """.format(**info)
 
     print(msg)
 
+
+def intdata(data,signed=False):
+    return int.from_bytes(data,'little',signed=signed)
+
 def strhexint(data):
-    return "%s (%s)" % (data.hex(),int.from_bytes(data,'little'))
+    return "%s (%s)" % (data.hex(),intdata(data))
 
 def hardway_handle_tpdo(canid, data, tstamp):
     """ Manually decode incoming TPDO messages """
 
     if canid == 0x1b0: # Decode TPDO 1
-        BMSINFO['voltage'] = int.from_bytes(data[0:2], 'little') / 1000.0
-        BMSINFO['unknown_2000_04'] = strhexint(data[2:4])
-        BMSINFO['unknown_2010_02'] = strhexint(data[4:6])
-        BMSINFO['unknown_2010_01'] = strhexint(data[6:7])
+        BMSINFO['voltage'] = intdata(data[0:2]) / 1000.0
+        BMSINFO['charge_level'] = intdata(data[2:4])
+        BMSINFO['max_capacity'] = intdata(data[4:6])
+        BMSINFO['soc'] = intdata(data[6:7])
         BMSINFO['power'] = 'on' if ord(data[7:8]) else 'off'
     elif canid == 0x2b0: # Decode TPDO 2
-        BMSINFO['temp1'] = int.from_bytes(data[0:2], 'little') / 100.0
-        BMSINFO['temp2'] = int.from_bytes(data[2:4], 'little') / 100.0
-        BMSINFO['temp3'] = int.from_bytes(data[4:6], 'little') / 100.0
-        BMSINFO['charge_current'] = int.from_bytes(data[6:8],'little')
+        BMSINFO['temp1'] = intdata(data[0:2]) / 100.0
+        BMSINFO['temp2'] = intdata(data[2:4]) / 100.0
+        BMSINFO['temp3'] = intdata(data[4:6]) / 100.0
+        BMSINFO['current'] = intdata(data[6:8],signed=True)
 
     BMSINFO['last_update'] = datetime.datetime.fromtimestamp(tstamp).\
             isoformat(' ',timespec='seconds')

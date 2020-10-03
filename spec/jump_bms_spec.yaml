@@ -515,25 +515,25 @@
   desc: Temp 1 - units look like  centi-degrees C - Farthest from power
   status: partial
 0x2000 0x03:
-  name: chargecurrent
+  name: current
   len: 2
   objtype: VAR
-  datatype: u16
+  datatype: s16
   access: ro
   sample: E2FF
-  default: input current
-  desc: Charge current
+  default: current
+  desc: Current    +in  -out
   status: partial
 0x2000 0x04:
-  name: ''
+  name: chargelevel
   len: 2
   objtype: VAR
   datatype: ''
   access: ro
   sample: A605
   default: ''
-  desc: ''
-  status: ''
+  desc: Charge level in milliamp hours
+  status: partial
 0x2001 0x00:
   name: ''
   len: 1
@@ -555,25 +555,27 @@
   desc: Status Record 2 - highest sub-index supported
   status: complete
 0x2010 0x01:
-  name: ''
+  name: stateofcharge
   len: 1
   objtype: VAR
-  datatype: ''
+  datatype: u8
   access: rw
   sample: 0C
-  default: ''
-  desc: ''
-  status: ''
+  default: Percent level of charge
+  desc: State of charge in percent. Calculated as  2000x04 / 2010x02
+  status: partial
 0x2010 0x02:
-  name: ''
+  name: maxcapacity
   len: 2
   objtype: VAR
   datatype: ''
   access: rw
   sample: 802B
   default: ''
-  desc: ''
-  status: ''
+  desc: Total capacity in milliamp hours. This is writable presumably to adjust for
+    aging. Not sure if its adjusted internally or externally.  Must do full charge,
+    discharge to find out.
+  status: partial
 0x2010 0x03:
   name: ''
   len: 1

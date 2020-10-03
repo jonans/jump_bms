@@ -47,7 +47,10 @@ The most interesting stuff is located at index 0x2000 and higher.
 - Power output enable/disable
 - Battery Voltage
 - Battery Temperature
-- Charge/Input Current
+- Current in mA
+- Capacity in mAh
+- Max Capacity in mAh
+- State of Charge in %
 - How to pull data from BMS or config BMS to push data.
 
 File | Description 
@@ -122,7 +125,8 @@ We can dump all the data and compare the differences under various testing condi
 
 ### Charging
 
-- Charge battery to 36v @ 2A. Starting voltage approxy 34.5
+- Charge battery under different conditions
 
-1. [charge-2A.csv](test/charge-2A.csv) - Charing @ 2A 36v
+1. [charge-2A.csv](test/charge-2A.csv) - Charging @ 2A 36v
+1. [charge-5A-40v.csv](test/charge-5A-40v.csv) - Charging @ 5A 40v
 

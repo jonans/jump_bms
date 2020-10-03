@@ -447,15 +447,15 @@ defaultvalue = current temp
 pdomapping = 0
 
 [2000sub3]
-parametername = chargecurrent
+parametername = current
 objecttype = 7
-datatype = 6
+datatype = 3
 accesstype = ro
-defaultvalue = input current
+defaultvalue = current
 pdomapping = 0
 
 [2000sub4]
-parametername = 2000sub4
+parametername = chargelevel
 objecttype = 7
 datatype = 0
 accesstype = ro
@@ -484,15 +484,15 @@ defaultvalue = 14
 pdomapping = 0
 
 [2010sub1]
-parametername = 2010sub1
+parametername = stateofcharge
 objecttype = 7
-datatype = 0
+datatype = 5
 accesstype = rw
-defaultvalue = 
+defaultvalue = Percent level of charge
 pdomapping = 0
 
 [2010sub2]
-parametername = 2010sub2
+parametername = maxcapacity
 objecttype = 7
 datatype = 0
 accesstype = rw
