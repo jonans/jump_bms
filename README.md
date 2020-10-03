@@ -47,7 +47,8 @@ The most interesting stuff is located at index 0x2000 and higher.
 - Power output enable/disable
 - Battery Voltage
 - Battery Temperature
-- Howto pull data from BMS or have BMS push data to bus.
+- Charge/Input Current
+- How to pull data from BMS or config BMS to push data.
 
 File | Description 
 ---- | -----------
@@ -63,7 +64,7 @@ Tools were created with Python under linux. Should run on windows but hasn't bee
 Tool | Description
 ---- | -----
 tools/canopendump | Simple tool that dumps all device data to text or csv
-tools/bmsmonitor | Sample code that displays BMS status such as voltage, temperature, and some other unknown data points. Demonstrates configuring BMS to automatically push this data when it changes.
+tools/bmsmonitor | Sample code that displays BMS status such as power state, voltage, temperature, current, and some other unknown data points. Demonstrates configuring BMS to automatically push data at intervals.
 tools/canspec | Takes the spec file jump_bms_spec.yaml and generates html, markdown, and eds files.
 
 ### Setup environment
@@ -118,4 +119,10 @@ We can dump all the data and compare the differences under various testing condi
 
 1. [idle-power-off.csv](test/idle-power-off.csv) - Power off
 1. [idle-power-on.csv](test/idle-power-on.csv) - Power on
+
+### Charging
+
+- Charge battery to 36v @ 2A. Starting voltage approxy 34.5
+
+1. [charge-2A.csv](test/charge-2A.csv) - Charing @ 2A 36v
 

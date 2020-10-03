@@ -447,11 +447,11 @@ defaultvalue = current temp
 pdomapping = 0
 
 [2000sub3]
-parametername = 2000sub3
+parametername = chargecurrent
 objecttype = 7
-datatype = 0
+datatype = 6
 accesstype = ro
-defaultvalue = 
+defaultvalue = input current
 pdomapping = 0
 
 [2000sub4]

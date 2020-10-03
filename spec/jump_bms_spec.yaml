@@ -512,18 +512,18 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temp 1 - units look like  centi-degrees C
+  desc: Temp 1 - units look like  centi-degrees C - Farthest from power
   status: partial
 0x2000 0x03:
-  name: ''
+  name: chargecurrent
   len: 2
   objtype: VAR
-  datatype: ''
+  datatype: u16
   access: ro
   sample: E2FF
-  default: ''
-  desc: ''
-  status: ''
+  default: input current
+  desc: Charge current
+  status: partial
 0x2000 0x04:
   name: ''
   len: 2
@@ -672,7 +672,7 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temp 2 - units look like  centi-degrees C
+  desc: Temp 2 - units look like  centi-degrees C - Nearest Power
   status: partial
 0x2010 0x0D:
   name: temp3
@@ -682,7 +682,7 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temp 3 - units look like  centi-degrees C
+  desc: Temp 3 - units look like  centi-degrees C   - Middle of pack
   status: partial
 0x2100 0x00:
   name: ''

@@ -7,7 +7,6 @@
 import time
 import sys
 import datetime
-import pprint
 import logging
 
 import click
@@ -32,7 +31,7 @@ def set_defaults():
              'temp1',
              'temp2',
              'temp3',
-             'unknown_2000_03',
+             'charge_current',
              'unknown_2000_04',
              'unknown_2010_01',
              'unknown_2010_02',
@@ -49,15 +48,15 @@ def show_status(info):
     msg = """
     Updated : {last_update}
     
-    Power   : {power}
-    Voltage : {voltage}v
-    Temp 1  : {temp1} degrees C
-    Temp 2  : {temp2} degrees C
-    Temp 3  : {temp3} degrees C
+    Power          : {power}
+    Voltage        : {voltage} v
+    Temp 1         : {temp1} degrees C
+    Temp 2         : {temp2} degrees C
+    Temp 3         : {temp3} degrees C
+    Charge Current : {charge_current} mA
 
     Unknown Data:
      
-    0x2000 03 = {unknown_2000_03}
     0x2000 04 = {unknown_2000_04} 
     0x2010 01 = {unknown_2010_01}
     0x2010 02 = {unknown_2010_02} 
@@ -82,7 +81,7 @@ def hardway_handle_tpdo(canid, data, tstamp):
         BMSINFO['temp1'] = int.from_bytes(data[0:2], 'little') / 100.0
         BMSINFO['temp2'] = int.from_bytes(data[2:4], 'little') / 100.0
         BMSINFO['temp3'] = int.from_bytes(data[4:6], 'little') / 100.0
-        BMSINFO['unknown_2000_03'] = strhexint(data[6:8])
+        BMSINFO['charge_current'] = int.from_bytes(data[6:8],'little')
 
     BMSINFO['last_update'] = datetime.datetime.fromtimestamp(tstamp).\
             isoformat(' ',timespec='seconds')
