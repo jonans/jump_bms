@@ -20,7 +20,7 @@ The BMS speaks the CANopen protocol which makes it easy to fetch all data and in
 
 - CAN bus baud rate: 100000
 - CANopen device profile is unknown and likely vendor specific. The Energybus / Cia-454 profile for light electric vehicles is worthy of investigation but its not publicly available...can-OPEN ?
-- Default CANopen node id is 0x30 . Unable to change using the standard methods.
+- CANopen node id is 0x30 and no obvious way to change it. Methods such as LSS do not work. Hopefully there is a method via software or hardware. Worst case is a static ID which means only a single battery per bus.
 - BMS starts up with 1 sec heartbeat in pre-operational mode.
 - 2 pre-mapped TPDOs available. Mapping is fixed.
 
@@ -42,7 +42,7 @@ The BMS speaks the CANopen protocol which makes it easy to fetch all data and in
 
 The main document spec document is available in HTML, Markdown, and YAML below.
 
-The most interesting stuff is located at index 0x2000 and higher.
+The most interesting stuff is located at canopen index 0x2000 and higher.
 
 - Power output enable/disable
 - Battery Voltage
@@ -60,6 +60,15 @@ File | Description
 [jump_bms_spec.md](spec/jump_bms_spec.md) | Markdown version of the data
 [jump_bms.eds](spec/jump_bms.eds) | EDS (cia 306) is the standard file format for describing CANopen devices. Its used by developers to get human readable variable names and automatically generate code. Its incomplete and non compliant but its just enough to work with the Python canopen library.
 
+## Whats else is needed ? 
+
+1. A way to change the device ID so more than one battery can be controlled on the same bus.
+1. Balance information such as per cell voltage or deltas if any.
+1. Cycle count/history if any.
+1. Calibration procedure if not automatic.
+1. LVC info if any.
+1. High resolution photos of the BMS and its components for repair/debugging. Already killed one caused by short on 8 pin connector. DC-DC stage is dead.
+
 ## Tools
 
 Tools were created with Python under linux. Should run on windows but hasn't been tested and may need fixing.
@@ -67,7 +76,7 @@ Tools were created with Python under linux. Should run on windows but hasn't bee
 Tool | Description
 ---- | -----
 tools/canopendump | Simple tool that dumps all device data to text or csv
-tools/bmsmonitor | Sample code that displays BMS status such as power state, voltage, temperature, current, and some other unknown data points. Demonstrates configuring BMS to automatically push data at intervals.
+tools/bmsmonitor | Sample code that displays BMS status such as power state, voltage, temperature, current, capacity, and state of charge. Demonstrates configuring BMS to automatically push data at intervals.
 tools/canspec | Takes the spec file jump_bms_spec.yaml and generates html, markdown, and eds files.
 
 ### Setup environment

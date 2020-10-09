@@ -512,7 +512,7 @@ parametername = 2010sub4
 objecttype = 7
 datatype = 0
 accesstype = 
-defaultvalue = 
+defaultvalue = 0
 pdomapping = 0
 
 [2010sub5]
@@ -520,7 +520,7 @@ parametername = 2010sub5
 objecttype = 7
 datatype = 0
 accesstype = 
-defaultvalue = 
+defaultvalue = 0
 pdomapping = 0
 
 [2010sub6]
@@ -528,7 +528,7 @@ parametername = 2010sub6
 objecttype = 7
 datatype = 0
 accesstype = 
-defaultvalue = 
+defaultvalue = 1
 pdomapping = 0
 
 [2010sub7]
@@ -544,7 +544,7 @@ parametername = 2010sub8
 objecttype = 7
 datatype = 0
 accesstype = 
-defaultvalue = 
+defaultvalue = 1
 pdomapping = 0
 
 [2010sub9]
@@ -568,7 +568,7 @@ parametername = 2010subB
 objecttype = 7
 datatype = 0
 accesstype = 
-defaultvalue = 
+defaultvalue = 0x00000000
 pdomapping = 0
 
 [2010subC]

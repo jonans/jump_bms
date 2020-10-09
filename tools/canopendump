@@ -101,6 +101,9 @@ def dump(node, start, stop, access_flag=False):
     """ Dump object dictionary for given node """
 
     out = []
+
+    node.sdo.RESPONSE_TIMEOUT=0.8
+    
     for index in range(start, stop):
         for subindex in range(0x00, 0xFF):
             try:

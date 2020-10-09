@@ -98,7 +98,7 @@
   access: ro
   sample: 11 F7 CA 23
   default: ''
-  desc: Might be a serial number, numerous coded stickers on case
+  desc: Appears to be same across difference battery packs
   status: ''
 0x101C 0x00:
   name: ''
@@ -410,8 +410,9 @@
   access: const
   sample: ''
   default: '0x21000108'
-  desc: For EDS - Maps to power_enable 0x2100 0x01
-  status: complete
+  desc: "For EDS - Mapping unclear, on during power enable or charging\n1 when power_enable\
+    \ 0x2100 0x01 == 1\n1 when charging and power_enable 0x2100 0x01 == 0"
+  status: partial
 0x1A01 0x00:
   name: ''
   len: 1
@@ -512,7 +513,7 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temp 1 - units look like  centi-degrees C - Farthest from power
+  desc: Temperature 1 - centi-degrees C - Farthest from power
   status: partial
 0x2000 0x03:
   name: current
@@ -593,8 +594,8 @@
   datatype: ''
   access: ''
   sample: ''
-  default: ''
-  desc: ''
+  default: '0'
+  desc: During charge 1
   status: ''
 0x2010 0x05:
   name: ''
@@ -603,8 +604,8 @@
   datatype: ''
   access: ''
   sample: ''
-  default: ''
-  desc: ''
+  default: '0'
+  desc: During charge 1
   status: ''
 0x2010 0x06:
   name: ''
@@ -613,8 +614,8 @@
   datatype: ''
   access: ''
   sample: ''
-  default: ''
-  desc: ''
+  default: '1'
+  desc: During charge 0
   status: ''
 0x2010 0x07:
   name: ''
@@ -633,8 +634,8 @@
   datatype: ''
   access: ''
   sample: ''
-  default: ''
-  desc: ''
+  default: '1'
+  desc: During charge 0
   status: ''
 0x2010 0x09:
   name: ''
@@ -663,8 +664,8 @@
   datatype: ''
   access: ''
   sample: ''
-  default: ''
-  desc: ''
+  default: '0x00000000'
+  desc: 0x01000000 During charge
   status: ''
 0x2010 0x0C:
   name: temp2
@@ -674,7 +675,7 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temp 2 - units look like  centi-degrees C - Nearest Power
+  desc: Temperature 2 - centi-degrees C - Nearest Power
   status: partial
 0x2010 0x0D:
   name: temp3
@@ -684,7 +685,7 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temp 3 - units look like  centi-degrees C   - Middle of pack
+  desc: Temperature 3 - centi-degrees C   - Middle of pack
   status: partial
 0x2100 0x00:
   name: ''
