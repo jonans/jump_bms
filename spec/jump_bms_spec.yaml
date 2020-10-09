@@ -380,8 +380,8 @@
   access: const
   sample: ''
   default: '0x20004DF0'
-  desc: For EDS - Maps to 0x2000 0x04
-  status: partial
+  desc: For EDS - Maps to chargelevel 0x2000 0x04
+  status: complete
 0x1A00 0x03:
   name: tpdo_sub_3
   len: 4
@@ -390,8 +390,8 @@
   access: const
   sample: ''
   default: '0x201002F0'
-  desc: For EDS - Maps to 0x2010 0x02
-  status: partial
+  desc: For EDS - Maps to maxcapacity 0x2010 0x02
+  status: complete
 0x1A00 0x04:
   name: tpdo_sub_4
   len: 4
@@ -400,8 +400,8 @@
   access: const
   sample: ''
   default: ''
-  desc: For EDS - Maps to 0x2010 0x01
-  status: partial
+  desc: For EDS - Maps to stateofcharge 0x2010 0x01
+  status: complete
 0x1A00 0x05:
   name: tpdo_sub_5
   len: 4
@@ -463,8 +463,8 @@
   access: const
   sample: ''
   default: '0x200003F0'
-  desc: For EDS - Maps to 0x2000 0x03
-  status: partial
+  desc: For EDS - Maps to current 0x2000 0x03
+  status: complete
 0x1A02 0x00:
   name: ''
   len: 1
@@ -504,7 +504,7 @@
   sample: ''
   default: current voltage
   desc: Pack voltage in mV
-  status: partial
+  status: complete
 0x2000 0x02:
   name: temp1
   len: 2
@@ -513,8 +513,8 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temperature 1 - centi-degrees C - Farthest from power
-  status: partial
+  desc: Temperature 1 - centi-degrees C - Farthest from power plug
+  status: complete
 0x2000 0x03:
   name: current
   len: 2
@@ -524,7 +524,7 @@
   sample: E2FF
   default: current
   desc: Current    +in  -out
-  status: partial
+  status: complete
 0x2000 0x04:
   name: chargelevel
   len: 2
@@ -533,7 +533,7 @@
   access: ro
   sample: A605
   default: ''
-  desc: Charge level in milliamp hours
+  desc: Charge level in milliamp hours.  Changes when BMS reboots
   status: partial
 0x2001 0x00:
   name: ''
@@ -564,7 +564,7 @@
   sample: 0C
   default: Percent level of charge
   desc: State of charge in percent. Calculated as  2000x04 / 2010x02
-  status: partial
+  status: complete
 0x2010 0x02:
   name: maxcapacity
   len: 2
@@ -573,7 +573,7 @@
   access: rw
   sample: 802B
   default: ''
-  desc: Total capacity in milliamp hours. This is writable presumably to adjust for
+  desc: Max capacity in milliamp hours. This is writable presumably to adjust for
     aging. Not sure if its adjusted internally or externally.  Must do full charge,
     discharge to find out.
   status: partial
@@ -675,8 +675,8 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temperature 2 - centi-degrees C - Nearest Power
-  status: partial
+  desc: Temperature 2 - centi-degrees C - Nearest power plug
+  status: complete
 0x2010 0x0D:
   name: temp3
   len: 2
@@ -685,8 +685,8 @@
   access: ''
   sample: ''
   default: current temp
-  desc: Temperature 3 - centi-degrees C   - Middle of pack
-  status: partial
+  desc: Temperature 3 - centi-degrees C  - Center of pack
+  status: complete
 0x2100 0x00:
   name: ''
   len: 1
@@ -765,7 +765,7 @@
   access: rw
   sample: ''
   default: '0'
-  desc: "Power output control.  \n- 1 to enable output  \n- 0 to disable output"
+  desc: "Power output control.  \n- 0 to disable output\n- 1 to enable output"
   status: partial
 0x2200 0x02:
   name: ''
@@ -1105,5 +1105,5 @@
   access: rw
   sample: ''
   default: 03 00 00 00
-  desc: ''
+  desc: 'Meaning unknown, values change:  03, 04, 08'
   status: ''
