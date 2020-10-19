@@ -12,6 +12,11 @@ Thanks to Jehu and Alex for documenting their work on waking up these batteries:
 
 ## About the Battery
 
+- Manufactured by BYD. Model INR18650MH1-10S4P (R10 BMS)
+
+  ![Battery Label](images/battery-label-small.jpg)
+
+
 The BMS speaks the CANopen protocol which makes it easy to fetch all data and interact with the device. At minimum read these two links if not familiar with CAN bus:
   
   - https://en.wikipedia.org/wiki/CAN_bus
@@ -36,7 +41,10 @@ The BMS speaks the CANopen protocol which makes it easy to fetch all data and in
   6 - BLACK | GND
   7 - ORANGE | Power enable, connect to 8
   8 - PINK | Power enable, connect to 7
+
 - Power/charge connector Molex ML-XT 4 pin ( should be compatible with Deutsch DT connectors )
+
+- Data connector:  JST JWPF 8 pin
 
 ## Whats been discovered so far ?
 

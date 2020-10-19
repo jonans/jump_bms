@@ -410,8 +410,10 @@
   access: const
   sample: ''
   default: '0x21000108'
-  desc: "For EDS - Mapping unclear, on during power enable or charging\n1 when power_enable\
-    \ 0x2100 0x01 == 1\n1 when charging and power_enable 0x2100 0x01 == 0"
+  desc: "For EDS - Mapping appears to be a bitmap:\n\n1 - Maps to power_enable 0x2100\
+    \ 0x01\n2 - Meaning unknown. This shows briefly after startup.\n4 - This bit is\
+    \ enabled when charging. Source unknown.\n8 - This bit is enabled when charing\
+    \ is stopped.  Meaning and source unknown."
   status: partial
 0x1A01 0x00:
   name: ''
@@ -424,7 +426,7 @@
   desc: "TPDO 2 mapping\n\nThis mapping actually reads empty. Its not configurable\
     \ but internally has the following 4 map entries configured. Documented here for\
     \ EDS."
-  status: partial
+  status: complete
 0x1A01 0x01:
   name: tpdo_sub_1
   len: 4
@@ -529,7 +531,7 @@
   name: chargelevel
   len: 2
   objtype: VAR
-  datatype: ''
+  datatype: u16
   access: ro
   sample: A605
   default: ''
@@ -569,7 +571,7 @@
   name: maxcapacity
   len: 2
   objtype: VAR
-  datatype: ''
+  datatype: u16
   access: rw
   sample: 802B
   default: ''

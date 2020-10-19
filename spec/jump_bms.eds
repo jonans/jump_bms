@@ -457,7 +457,7 @@ pdomapping = 0
 [2000sub4]
 parametername = chargelevel
 objecttype = 7
-datatype = 0
+datatype = 6
 accesstype = ro
 defaultvalue = 
 pdomapping = 0
@@ -494,7 +494,7 @@ pdomapping = 0
 [2010sub2]
 parametername = maxcapacity
 objecttype = 7
-datatype = 0
+datatype = 6
 accesstype = rw
 defaultvalue = 
 pdomapping = 0
